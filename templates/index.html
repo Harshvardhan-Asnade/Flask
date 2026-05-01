@@ -27,6 +27,7 @@
     </header>
     <div class="box">
         {% for movie in movies %}
+        <a href="/movies/{{movie.id}}" class="card-link">
         <div class="moviesbox">
             <h2>{{ movie.title }}</h2>
             <p>⭐ Rating: {{ movie.rating }}</p>
@@ -47,6 +48,7 @@
             </div>
             {% endfor %}
         </div>
+        </a>
         {% endfor %}
     </div>
 
