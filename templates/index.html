@@ -14,24 +14,28 @@
 
     <header>
         <nav class="navbar">
-            <div class="logo">
-                <img src="{{ url_for('static', filename='logo.svg') }}" alt="Logo" width="10%">
-            </div>
-            <ul class="nav-links">
-                <li><a href="{{ url_for('home') }}">Home</a></li>
-                <li><a href="#">Moßvies</a></li>
-                <li><a href="#">Anime</a></li>
-                <li><a href="#">Ranking</a></li>
-            </ul>
-        </nav>
+    <div class="left">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='logo.svg') }}" alt="Logo" width="50px">
+        </div>
+        <div class="name">
+            <a href="#">Cinerix</a>
+        </div>
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Movies</a></li>
+        <li><a href="#">Anime</a></li>
+        <li><a href="#">Ranking</a></li>
+         <form method="POST">
+                    <input type="text" name="search" placeholder="Search Movies">
+                    <button type="submit">Search</button>
+                </form>
+    </ul>
+</nav>
     </header>
     <div class="box">
-        <form method="POST">
-            <input type="text" name="search" placeholder="Search Movies">
-            <button type="submit">Search</button>
-        </form>
-
-
         {% for movie in movies %}
         <a href="/movies/{{movie.id}}">
             <div class="moviesbox">

@@ -1,12 +1,88 @@
+
 body {
   background-color: #ffffff;
   color: rgb(0, 0, 0);
+  margin: 0rem;
+  padding: 0rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+nav{
+  max-height: 1rem;
+  align-items: center;
+}
+.name{
+  align-items: center;
+  padding: 0rem;
+  margin: 0rem;
+  
+}
+.name a{
+  text-decoration: none;
+  text-align: center;
+  padding: 0rem;
+  margin: 1rem;
+  color: white;
+}
+.navbar{
+  @font-face {
+  font-family: 'Mainfont';
+  src: url(Mainfont.ttf);
+}body {
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  margin: 0rem;
+  padding: 0rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+nav{
+  max-height: 1rem;
+  align-items: center;
+}
+.name{
+  align-items: center;
+  padding: 0rem;
+  margin: 0rem;
+  
+}
+.name a{
+  text-decoration: none;
+  text-align: center;
+  padding: 0rem;
+  margin: 1rem;
+  color: white;
+}
+.navbar{
+  border: none;
+  border-radius: 0px; 
+  place-content: center;
+  padding:0rem;
+  margin: 0rem;
+  background-color: rgb(249, 249, 249);
+  color: #000000;
+}
 
+logo img{
+  padding: 0%;
+  margin: 0rem;
+  align-items: center;
+}
+  border: none;
+  border-radius: 0px; 
+  place-content: center;
+  padding:0rem;
+  margin: 0rem;
+  background-color: rgb(249, 249, 249);
+  color: #000000;
+}
+
+logo img{
+  padding: 0%;
+  margin: 0rem;
+  align-items: center;
+}
 .box {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 3fr);
   gap: 10px;
   padding: 10px;
 }
@@ -15,6 +91,8 @@ body {
   border: 5px solid #d70000;
   padding: 10px;
   border-radius: 10px;
+  width:250px;
+  height: 650px ;
 }
 
 .top-rated {
@@ -34,6 +112,8 @@ body {
   display: flex;
   gap: 3rem;
   list-style: none;
+  text-align: center;
+  align-items: center;
 }
 
 .nav-links a {
@@ -42,10 +122,6 @@ body {
   text-decoration: none;
 }
 
-.logo img {
-  padding: 2px;
-  margin: 2px;
-}
 
 .genre {
   display: flex;
@@ -70,5 +146,19 @@ body {
     text-decoration: none;
     color: inherit;
 }
-
-
+input{
+  border: none;
+  border-radius: 100px; 
+  place-content: center;
+  padding: 0.75rem 1rem;
+  background-color: rgb(249, 249, 249);
+  color: #000000;
+}
+button{
+  border: none;
+  border-radius: 100px; 
+  place-content: center;
+  padding: 0.75rem 1rem;
+  background-color: rgb(249, 249, 249);
+  color: #000000;
+}
