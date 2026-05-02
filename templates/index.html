@@ -31,31 +31,27 @@
             <button type="submit">Search</button>
         </form>
 
-        <a href="/movies/{{movie/id}}">
-            {% for movie in movies %}
+
+        {% for movie in movies %}
+        <a href="/movies/{{movie.id}}">
             <div class="moviesbox">
 
-                <img src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}" width="150">
+                <img src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}" width="250">
 
                 <h2>{{ movie.title }}</h2>
-                <p>⭐ Rating: {{ movie.vote_average }}</p>
-                <p>{{ movie.overview }}</p>
-                <p>{{ movie.genre_ids }}</p>
-                <p>{{ movie.release_date }}</p>
-                <p>{{ movie.popularity }}</p>
-                <p>{{ movie.adult }}</p>
-                <p>{{ movie.video }}</p>
-                <p>{{ movie.id }}</p>
-                <p>{{movie.vote_count}}</p>
-
+                <p>Rating: {{ movie.vote_average }} ({{ movie.vote_count }} votes)</p>
+                <p>Genre:{{ movie.genre_ids }}</p>
+                <p>Release: {{ movie.release_date }}</p>
+                <p>Popularity: {{ movie.popularity }}</p>
+                <p>Adult:{{movie.adult}}</p>
 
                 {% if movie.vote_average > 8 %}
                 <p class="top-rated">⭐ Top Rated</p>
                 {% endif %}
 
             </div>
-            {% endfor %}
         </a>
+        {% endfor %}
     </div>
 
 </body>
