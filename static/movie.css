@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+.left img {
+  width: 200px;
+  border-radius: 10px;
+}
+
+.right {
+  max-width: 600px;
+}
+
+.right p {
+  margin: 6px;
+}
+ 
+button {
+  border: none;
+  border-radius: 50px;
+  padding: 10px 20px;
+  background: black;
+}

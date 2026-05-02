@@ -8,14 +8,14 @@ app = Flask(__name__)
 def fetch_movies():
     url = "https://api.themoviedb.org/3/trending/movie/week"
     params={
-        "api_key":"5e4680fa8acf126d39b554e2d1733db0"
+        "api_key":"9b00a8153736b7c4f78662ac037bbb99"
     }
     response=requests.get(url,params=params)
     data=response.json()
     return data["results"]
 def fetch_movie_detail(movie_id):
     url = f"https://api.themoviedb.org/3/movie/{movie_id}"
-    params = {"api_key": "5e4680fa8acf126d39b554e2d1733db0"}
+    params = {"api_key": "9b00a8153736b7c4f78662ac037bbb99"}
 
     response = requests.get(url, params=params)
     return response.json()
@@ -40,7 +40,7 @@ def movie_detail(id):
 def search_movies(query):
     url = "https://api.themoviedb.org/3/search/movie"
     params = {
-        "api_key": "5e4680fa8acf126d39b554e2d1733db0",
+        "api_key": "9b00a8153736b7c4f78662ac037bbb99",
         "query": query
     }
 
@@ -51,7 +51,7 @@ def search_movies(query):
 
 def fetch_videos(movie_id):
     url = f"https://api.themoviedb.org/3/movie/{movie_id}/videos"
-    params = {"api_key": "5e4680fa8acf126d39b554e2d1733db0"
+    params = {"api_key": "9b00a8153736b7c4f78662ac037bbb99"
     }
 
     response = requests.get(url, params=params)
@@ -60,4 +60,4 @@ def fetch_videos(movie_id):
     return data.get("results", [])
 
 if __name__=='__main__':
-    app.run(debug=True,port=9000)
+    app.run(debug=True,port=9100)

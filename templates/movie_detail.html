@@ -5,53 +5,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ movie.title }}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='movie.css') }}">
     <link rel="icon" href="{{ url_for('static', filename='logo.svg') }}">
 
 </head>
-
 <body>
 
+<div class="container">
 
-    {% if movie.poster_path %}
-        <img src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}" width="200">
-    {% endif %}
+    <div class="left">
+        {% if movie.poster_path %}
+            <img src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}">
+        {% endif %}
+    </div>
 
-    <h2>{{ movie.title }}</h2>
+    <div class="right">
 
-    <p>{{ movie.vote_average }} ({{ movie.vote_count }} votes)</p>
+        <h2>{{ movie.title }}</h2>
+        <p>Rating : {{ movie.vote_average }} ({{ movie.vote_count }} votes)</p>
+        <p>Overview: {{ movie.overview }}</p>
+        <p>Release : {{ movie.release_date }}</p>
+        <p>Popularity: {{ movie.popularity }}</p>
+        <p> Adult:
+            {% if movie.adult %}
+             Yes    
+             {% else %}
+              No 
+              {% endif %}
+        </p>
+        <p>Runtime: {{ movie.runtime }} min</p>
+        <p>Genres:
+            {% for g in movie.genres %}
+                {{ g.name }}{% if not loop.last %}, {% endif %}
+            {% endfor %}
+        </p>
+        <p>Budget: {{ movie.budget }}</p><br>
+        <button><a style="text-decoration: none;  color: white;" href="/">⬅ Back</a></button>
+        <h3>Trailer</h3>
 
-    <p>{{ movie.overview }}</p>
-
-    <p>{{ movie.release_date }}</p>
-
-    <p>Popularity: {{ movie.popularity }}</p>
-
-    <p> Adult:
-        {% if movie.adult %} Yes {% else %} No {% endif %}
-    </p>
-
-    <p>Runtime: {{ movie.runtime }} min</p>
-
-    <p>Genres:
-        {% for g in movie.genres %}
-            {{ g.name }}{% if not loop.last %}, {% endif %}
+        {% for v in videos if v.site == "YouTube" and v.type == "Trailer" %}
+            {% if loop.first %}
+                <iframe width="500" height="300"
+                    src="https://www.youtube.com/embed/{{ v.key }}">
+                </iframe>
+            {% endif %}
         {% endfor %}
-    </p>
 
-    <p>Budget: {{ movie.budget }}</p>
-
-    <a href="/">⬅ Back</a>
-
-    <h3>Trailer</h3>
-
-{% for v in videos if v.site == "YouTube" and v.type == "Trailer" %}
-    {% if loop.first %}
-        <iframe width="500" height="300"
-            src="https://www.youtube.com/embed/{{ v.key }}">
-        </iframe>
-    {% endif %}
-{% endfor %}
-
+    </div>
+</div>
 </body>
+
 </html>
